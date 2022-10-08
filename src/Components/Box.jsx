@@ -1,10 +1,11 @@
  import React from 'react'
  import Item from "./Item"; 
  
- export default function Box(props) {
-  const items = props.data.map(
-     (singleData,index) => {
-      return <Item removeHandler={props.removeToDo} key={index} id={index} item={singleData.item} time={singleData.time} />
+ export default function Box({data, handleDelete}) {
+   //console.log(data)
+  const items = data.map(
+     (singleData) => {
+      return <Item key={singleData.id} removeHandler={handleDelete} item={singleData} />
      }
   )
    return (
